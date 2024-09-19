@@ -183,7 +183,7 @@ def generate_credentials():
             return jsonify({"status": "success"})
 
         except Exception as e:
-            return jsonify({"status": "failed"})
+            return jsonify({"status": f"failed {e}"})
 
 
 @app.route('/api/doc')
