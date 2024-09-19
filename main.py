@@ -89,7 +89,7 @@ def index():
     return render_template('index.html',form=form)
 
 @app.route('/api/generate_data')
-#@limiter.limit("5 per minute, 50 per day")
+@limiter.limit("5 per minute, 50 per day")
 def handling_api():
     user_id=str(request.args.get("user_id"))
     user_token=str(request.args.get("user_token"))
@@ -142,7 +142,7 @@ def generate_random_string():
 
 
 @app.route('/api/generate_credentials')
-#@limiter.limit("2 per day")
+@limiter.limit("2 per day")
 def generate_credentials():
 
     email=request.args.get('email')
@@ -183,7 +183,7 @@ def generate_credentials():
             return jsonify({"status": "success"})
 
         except Exception as e:
-            return jsonify({"status": f"failed {e}"})
+            return jsonify({"status": "failed"})
 
 
 @app.route('/api/doc')
