@@ -64,7 +64,7 @@ class User(db.Model):
     __tablename__ = 'users_info'
     id:Mapped[int]=mapped_column(Integer,primary_key=True)
     user_id:Mapped[str]=mapped_column(String(26),nullable=False)
-    user_token:Mapped[str]=mapped_column(String(26),nullable=False)
+    user_token:Mapped[str]=mapped_column(String(255),nullable=False)
     created_at: Mapped[datetime] = mapped_column(Date, default=datetime.date)
 
 
